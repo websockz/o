@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<head>
+    <title>g</title>
+<meta name="description" content="g"/>
+<meta property="og:title" content="g"/>
+<meta property="og:description" content="g"/>
+<meta name="referrer" content="no-referrer">
+
+
+
+
+    <style>
+        .header_blue {
+            background: #1565c0;
+            padding: 80px 0 20px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+        .header_text {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+        body{
+            margin:0;
+            font-family:Roboto, sans-serif;
+            color:#444;
+        }
+        .unlockBtn:hover{
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        }
+        .unlockBtn {
+            background: #2196f3;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+            min-height: 31px;
+            min-width: 70px;
+            padding: 2px 16px;
+            text-align: center;
+            text-shadow: none;
+            text-transform: uppercase;
+            -webkit-transition: all 280ms ease;
+            transition: all 280ms ease;
+            box-sizing: border-box;
+            cursor: pointer;
+            -webkit-appearance: none;
+            display: inline-block;
+            vertical-align: middle;
+            font: 500 14px/31px Roboto,sans-serif!important;
+            outline: 0!important;
+            color:white;
+        }
+        .content-container{
+            width:80%;margin:0 auto;
+        }
+        @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(http://fonts.gstatic.com/s/roboto/v15/Pru33qjShpZSmG3z6VYwnRJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/oOeFwZNlrTefzLYmlVV1UBJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Concert One', cursive;
+}
+.timer{
+  text-align: center;
+  font-size: 28px;
+}
+
+
+
+.header{
+    font-family: 'Concert One', cursive;
+    font-size: 30px;
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    
+}
+
+.useronline{
+  font-family: 'Concert One', cursive;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fff;
+
+  -webkit-background-clip: padding-box;
+}
+#update{
+  font-family: 'Concert One', cursive;
+  color: red;
+}
+#user-online{
+  font-family: 'Concert One', cursive;
+  color: red;
+}
+.showin{
+  animation: showin 0.5s;
+ animation-fill-mode: forwards;
+ }
+ @keyframes showin {
+   0% { transform: scale(0);}
+ 30% { transform: scale(1);}
+ 60% { transform: scale(1.1);}
+   100% { transform: scale(1);}
+ }
+ #Gentext{
+  color: #fff;
+ }
+
+.footer{
+  display: block;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.699);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  bottom: 0;
+}
+input{
+  width: 320px;
+  text-align: center;
+  padding: 15px 0px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.appbox1{
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.664);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  border: #333 solid 5px;
+  border-radius: 15px;
+  padding: 10px;
+  z-index: 99;
+}
+.appbox{
+  background: rgba(0, 0, 0, 0.507);
+  border: whitesmoke solid 5px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    max-width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 5px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    text-decoration: none;
+    
+    
+
+}
+.appbox a{
+  text-decoration: none;
+ 
+
+}
+
+.iconimg{
+    max-width: 130px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+.iconimg:hover{
+    background-color: #333;
+    border: #fff solid 5px;
+    transform: scale(1.1);
+    box-shadow: 0px -25px 20px -20px rgba(255, 255, 255, 0.45), 25px 0 20px -20px rgba(255, 255, 255, 0.45), 0px 25px 20px -20px rgba(255, 255, 255, 0.45), -25px 0 20px -20px rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+
+
+}
+.selectedcard{
+    background-color: #333;
+    border: #fff solid 5px;
+    transform: scale(1.2);
+    box-shadow: 0px -25px 20px -20px rgba(255, 255, 255, 0.45), 25px 0 20px -20px rgba(255, 255, 255, 0.45), 0px 25px 20px -20px rgba(255, 255, 255, 0.45), -25px 0 20px -20px rgba(255, 255, 255, 0.45);
+
+}
+.button{
+    cursor: pointer;
+    display: block;
+    max-width: 220px;
+    text-align: center;
+    font-size: 20px;
+    border-color: #0069d9;
+    background: #0069d9;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 10px;
+    z-index: 99;
+}
+.button:hover{
+    border-color: #065cb8;
+    background: #065cb8;
+    transform: scale(1.1);
+
+}
+.download{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    border: #333 solid 2px;
+
+}
+.showiconimg{
+    max-width: 180px;
+    border-radius: 10px;
+    border: #fff solid 5px;
+    box-shadow: 0px -25px 20px -20px rgba(255, 255, 255, 0.45), 25px 0 20px -20px rgba(255, 255, 255, 0.45), 0px 25px 20px -20px rgba(255, 255, 255, 0.45), -25px 0 20px -20px rgba(255, 255, 255, 0.45);
+}
+.text1{
+    display: block;
+    font-size: 20px;
+    position:relative;
+    z-index: 10000;
+    max-width: 90%;
+    color: #fff;
+    font-family: 'Play', sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+    margin-top: 5px;
+
+}
+#Gentext{
+  font-family: 'Courier New', Courier, monospaceS;
+  max-width: 350px;
+  margin: auto;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px 20px;
+  color: #000;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+#Gentext1{
+  color: #fff;
+}
+.Gen-Text{
+  font-family: 'Play', sans-serif;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.icon{
+    width: 200px;
+    font-family: 'Play', sans-serif;
+
+
+}
+
+
+
+#google_translate_element{
+  padding: 10px;
+}
+
+body{
+  place-items: center;
+  scroll-behavior: smooth;
+  background-color: #00acd2;
+
+  z-index: -1;
+}
+
+svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+
+.links {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+
+}
+a:hover {
+  text-decoration: none;
+}
+a img.icon {
+  display: inline-block;
+  height: 1em;
+  margin: 0 0 -0.1em 0.3em;
+}
+
+/*  */
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&amp;display=swap" rel="stylesheet">
+    <title></title>
+
+</head>
+
+<body>
+    <center>
+        <div id="google_translate_element"></div>
+    </center>
+
+
+
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+        <defs>
+            <style>
+                @keyframes rotate {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .out-top {
+                    animation: rotate 20s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+
+                .in-top {
+                    animation: rotate 10s linear infinite;
+                    transform-origin: 13px 25px;
+                }
+
+                .out-bottom {
+                    animation: rotate 25s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+
+                .in-bottom {
+                    animation: rotate 15s linear infinite;
+                    transform-origin: 84px 93px;
+                }
+            </style>
+        </defs>
+        <path fill="#9b5de5" class="out-top"
+            d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+        <path fill="#f15bb5" class="in-top"
+            d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+        <path fill="#00bbf9" class="out-bottom"
+            d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+        <path fill="#00f5d4" class="in-bottom"
+            d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+    </svg>
+    <!--  -->
+
+
+    <div id="header" class="header">  <br>
+    <img src="https://i.imgur.com/yCnJ40m.png" style="width: 25px;">
+         <br></div>
+            <div class="timer">EXPIRE IN <span id="timer"></span></div> <br>
+
+            
+
+
+    <hr>
+    <div id="download" style="display: none; margin-top: 20px;" class="appbox1">
+        <div><img src=" " id="imggen" class="showiconimg"></div>
+        <div style="display: none;" class="Gen-Text" id="Gentext"></div>
+        <div style="display: none;" class="Gen-Text" id="Gentext1">Complete a sponsored activity to unlock the final
+            code. This will help pay for your card.</div>
+
+
+        <div style="display: none;" class="button" id="button1" onclick="_Th()"> Next </div>
+
+        <div id="boxhide">
+            <div class="text1">Here is your</div>
+            <div class="button" id="button" onclick="bntnext()"> Get Now! </div>
+        </div>
+    </div>
+
+    <div class="appbox" id="appbox">
+        <a href="#header">
+            <img onclick="card(1)" src="https://i.imgur.com/VO61lqg.png" class="iconimg" id="card1">
+            <img onclick="card(2)"
+                src="https://i.imgur.com/mQtKrkR.png"
+                class="iconimg" id="card2">
+            <img onclick="card(3)" src="https://i.imgur.com/V2xe8PR.png" class="iconimg" id="card3">
+            <img onclick="card(4)"
+                src="https://i.imgur.com/PxYOWSh.png"
+                class="iconimg" id="card4">
+            <img onclick="card(5)" src="https://i.imgur.com/xuux5mM.png" class="iconimg" id="card5">
+            <img onclick="card(6)"
+                src="https://i.imgur.com/7k8to9N.png"
+                class="iconimg" id="card6">
+            <img onclick="card(7)"
+                src="https://i.imgur.com/3Dcwf5Z.png"
+                class="iconimg" id="card7">
+            <img onclick="card(8)"
+                src="https://i.imgur.com/B4BRIhR.png"
+                class="iconimg" id="card8">
+            <img onclick="card(9)"
+                src="https://i.imgur.com/zdjLaWv.png"
+                class="iconimg" id="card9">
+            <img onclick="card(10)"
+                src="https://i.imgur.com/BAvjmff.png"
+                class="iconimg" id="card10">
+            <img onclick="card(11)"
+                src="https://i.imgur.com/EStHsTw.png"
+                class="iconimg" id="card11">
+            <img onclick="card(12)"
+                src="https://i.imgur.com/YypoD7E.png"
+                class="iconimg" id="card12">
+            <img onclick="card(13)"
+                src="https://i.imgur.com/qNlaCIr.png"
+                class="iconimg" id="card13">
+            <img onclick="card(14)"
+                src="https://i.imgur.com/lM0JdjU.png"
+                class="iconimg" id="card14">
+            <img onclick="card(15)"
+                src="https://i.imgur.com/vqwtXKf.png"
+                class="iconimg" id="card15">
+            <img onclick="card(16)"
+                src="https://i.imgur.com/3FyNMST.png"
+                class="iconimg" id="card16">
+            <img onclick="card(17)"
+                src="https://i.imgur.com/hsswmGI.png"
+                class="iconimg" id="card17">
+            <img onclick="card(18)"
+                src="https://i.imgur.com/cWc1Do9.png"
+                class="iconimg" id="card18">
+            <img onclick="card(19)"
+                src="https://i.imgur.com/wA6l2sC.png"
+                class="iconimg" id="card19">
+            <img onclick="card(20)"
+                src="https://i.imgur.com/PbQiHUr.png"
+                class="iconimg" id="card20">
+            <img onclick="card(21)"
+                src="https://i.imgur.com/lYl1QUy.png"
+                class="iconimg" id="card21">
+            <img onclick="card(22)"
+                src="https://i.imgur.com/eQrl1Np.png"
+                class="iconimg" id="card22">
+            <img onclick="card(23)"
+                src="https://i.imgur.com/QOs50qD.png"
+                class="iconimg" id="card23">
+            <img onclick="card(24)"
+                src="https://i.imgur.com/6YnuyVh.png"
+                class="iconimg" id="card24">
+            <img onclick="card(25)"
+                src="https://i.imgur.com/qGOpy5A.png"
+                class="iconimg" id="card25">
+            <img onclick="card(26)"
+                src="https://i.imgur.com/S8g37Ux.png"
+                class="iconimg" id="card26">
+            <img onclick="card(27)"
+                src="https://i.imgur.com/B76R1px.png"
+                class="iconimg" id="card27">
+            <img onclick="card(28)"
+                src="https://i.imgur.com/GpMe1YE.png"
+                class="iconimg" id="card28">
+            <img onclick="card(29)"
+                src="https://i.imgur.com/K2c4anF.png"
+                class="iconimg" id="card29">
+            <img onclick="card(30)"
+                src="https://i.imgur.com/HpncR7M.png"
+                class="iconimg" id="card30">
+            <img onclick="card(31)"
+                src="https://i.imgur.com/AtBj8NF.png"
+                class="iconimg" id="card31">
+            <img onclick="card(32)"
+                src="https://i.imgur.com/sbfCnQm.png"
+                class="iconimg" id="card32">
+            <img onclick="card(33)"
+                src="https://i.imgur.com/0WV9Hxu.png"
+                class="iconimg" id="card33">
+            <img onclick="card(34)"
+                src="https://i.imgur.com/XCJOlCu.png"
+                class="iconimg" id="card34">
+            <img onclick="card(35)"
+                src="https://i.imgur.com/O4Ln778.png"
+                class="iconimg" id="card35">
+            <img onclick="card(36)"
+                src="https://i.imgur.com/mYImfIH.png"
+                class="iconimg" id="card36">
+            <img onclick="card(37)"
+                src="https://i.imgur.com/OwocroC.png"
+                class="iconimg" id="card37">
+            <img onclick="card(38)"
+                src="https://i.imgur.com/KEpxxjU.png"
+                class="iconimg" id="card38">
+            <img onclick="card(39)"
+                src="https://i.imgur.com/WSIR8zg.png"
+                class="iconimg" id="card39">
+            <img onclick="card(40)"
+                src="https://i.imgur.com/YV0Vt6T.png"
+                class="iconimg" id="card40">
+            <img onclick="card(41)"
+                src="https://i.imgur.com/vBdoYkx.png"
+                class="iconimg" id="card41">
+            <img onclick="card(42)"
+                src="https://i.imgur.com/iYRLi3J.png"
+                class="iconimg" id="card42">
+            <img onclick="card(43)"
+                src="https://i.imgur.com/KPi8oj6.png"
+                class="iconimg" id="card43">
+            <img onclick="card(44)"
+                src="https://i.imgur.com/4d82gXh.png"
+                class="iconimg" id="card44">
+
+
+        </a>
+    </div>
+
+
+
+
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "037ab4eaeffc48c9b1541e9ff3d34d01"}'></script><!-- Cloudflare Pages Analytics --></body>
+<script src="main.html"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript"
+    src="../translate.google.com/translate_a/elementa0d8.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function countdown( elementName, minutes, seconds )
+      {
+          var element, endTime, hours, mins, msLeft, time;
+      
+          function twoDigits( n )
+          {
+              return (n <= 9 ? "0" + n : n);
+          }
+      
+          function updateTimer()
+          {
+              msLeft = endTime - (+new Date);
+              if ( msLeft < 1000 ) {
+                  element.innerHTML = "Time is up!";
+              } else {
+                  time = new Date( msLeft );
+                  hours = time.getUTCHours();
+                  mins = time.getUTCMinutes();
+                  element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+                  setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+              }
+          }
+      
+          element = document.getElementById( elementName );
+          endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+          updateTimer();
+      }
+      
+      countdown( "timer", 60, 0 );
+      </script>
+
+
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var IsRes_Bhp_cQWzyc={"it":4198417,"key":"29222"};
+</script>
+<script src="https://d1xv7hxes9rviq.cloudfront.net/897b37e.js"></script>
+
+
+<script>
+
+</script>
+<script type="text/javascript">
+    var myVar2 = setInterval(UserTimer, 9000);
+function UserTimer() {
+    document.getElementById("user-online").innerHTML = Math.floor(Math.random() * 100) + 200;
+}
+
+var date = (new Date()).toString().split(' ').splice(1, 3).join(' ');
+document.getElementById("update").innerHTML = date;
+
+
+function card(cardnum) {
+    document.getElementById("download").style.display = "block";
+    document.getElementById("card1").classList.remove("selectedcard");
+    document.getElementById("card2").classList.remove("selectedcard");
+    document.getElementById("card3").classList.remove("selectedcard");
+    document.getElementById("card4").classList.remove("selectedcard");
+    document.getElementById("card5").classList.remove("selectedcard");
+    document.getElementById("card6").classList.remove("selectedcard");
+    document.getElementById("card7").classList.remove("selectedcard");
+    document.getElementById("card8").classList.remove("selectedcard");
+    document.getElementById("card9").classList.remove("selectedcard");
+    document.getElementById("card10").classList.remove("selectedcard");
+    document.getElementById("card11").classList.remove("selectedcard");
+    document.getElementById("card12").classList.remove("selectedcard");
+    document.getElementById("card13").classList.remove("selectedcard");
+    document.getElementById("card14").classList.remove("selectedcard");
+    document.getElementById("card15").classList.remove("selectedcard");
+    document.getElementById("card16").classList.remove("selectedcard");
+    document.getElementById("card17").classList.remove("selectedcard");
+    document.getElementById("card18").classList.remove("selectedcard");
+    document.getElementById("card19").classList.remove("selectedcard");
+    document.getElementById("card20").classList.remove("selectedcard");
+    document.getElementById("card21").classList.remove("selectedcard");
+    document.getElementById("card22").classList.remove("selectedcard");
+    document.getElementById("card23").classList.remove("selectedcard");
+    document.getElementById("card24").classList.remove("selectedcard");
+    document.getElementById("card25").classList.remove("selectedcard");
+    document.getElementById("card26").classList.remove("selectedcard");
+    document.getElementById("card27").classList.remove("selectedcard");
+    document.getElementById("card28").classList.remove("selectedcard");
+    document.getElementById("card29").classList.remove("selectedcard");
+    document.getElementById("card30").classList.remove("selectedcard");
+    document.getElementById("card31").classList.remove("selectedcard");
+    document.getElementById("card32").classList.remove("selectedcard");
+    document.getElementById("card33").classList.remove("selectedcard");
+    document.getElementById("card34").classList.remove("selectedcard");
+    document.getElementById("card35").classList.remove("selectedcard");
+    document.getElementById("card36").classList.remove("selectedcard");
+    document.getElementById("card37").classList.remove("selectedcard");
+    document.getElementById("card38").classList.remove("selectedcard");
+    document.getElementById("card39").classList.remove("selectedcard");
+    document.getElementById("card40").classList.remove("selectedcard");
+    document.getElementById("card41").classList.remove("selectedcard");
+    document.getElementById("card42").classList.remove("selectedcard");
+    document.getElementById("card43").classList.remove("selectedcard");
+    document.getElementById("card44").classList.remove("selectedcard");
+    document.getElementById("card" + cardnum).classList.add("selectedcard");
+
+    if (cardnum == 1) {
+        document.getElementById("imggen").src = document.getElementById("card1").src;
+    } else if (cardnum == 2) {
+        document.getElementById("imggen").src = document.getElementById("card2").src;
+    } else if (cardnum == 3) {
+        document.getElementById("imggen").src = document.getElementById("card3").src;
+    } else if (cardnum == 4) {
+        document.getElementById("imggen").src = document.getElementById("card4").src;
+    } else if (cardnum == 5) {
+        document.getElementById("imggen").src = document.getElementById("card5").src;
+    } else if (cardnum == 6) {
+        document.getElementById("imggen").src = document.getElementById("card6").src;
+    } else if (cardnum == 7) {
+        document.getElementById("imggen").src = document.getElementById("card7").src;
+    } else if (cardnum == 8) {
+        document.getElementById("imggen").src = document.getElementById("card8").src;
+    } else if (cardnum == 9) {
+        document.getElementById("imggen").src = document.getElementById("card9").src;
+    } else if (cardnum == 10) {
+        document.getElementById("imggen").src = document.getElementById("card10").src;
+    } else if (cardnum == 11) {
+        document.getElementById("imggen").src = document.getElementById("card11").src;
+    } else if (cardnum == 12) {
+        document.getElementById("imggen").src = document.getElementById("card12").src;
+    } else if (cardnum == 13) {
+        document.getElementById("imggen").src = document.getElementById("card13").src;
+    } else if (cardnum == 14) {
+        document.getElementById("imggen").src = document.getElementById("card14").src;
+    } else if (cardnum == 15) {
+        document.getElementById("imggen").src = document.getElementById("card15").src;
+    } else if (cardnum == 16) {
+        document.getElementById("imggen").src = document.getElementById("card16").src;
+    } else if (cardnum == 17) {
+        document.getElementById("imggen").src = document.getElementById("card17").src;
+    } else if (cardnum == 18) {
+        document.getElementById("imggen").src = document.getElementById("card18").src;
+    } else if (cardnum == 19) {
+        document.getElementById("imggen").src = document.getElementById("card19").src;
+    } else if (cardnum == 20) {
+        document.getElementById("imggen").src = document.getElementById("card20").src;
+    } else if (cardnum == 21) {
+        document.getElementById("imggen").src = document.getElementById("card21").src;
+    } else if (cardnum == 22) {
+        document.getElementById("imggen").src = document.getElementById("card22").src;
+    } else if (cardnum == 23) {
+        document.getElementById("imggen").src = document.getElementById("card23").src;
+    } else if (cardnum == 24) {
+        document.getElementById("imggen").src = document.getElementById("card24").src;
+    } else if (cardnum == 25) {
+        document.getElementById("imggen").src = document.getElementById("card25").src;
+    } else if (cardnum == 26) {
+        document.getElementById("imggen").src = document.getElementById("card26").src;
+    } else if (cardnum == 27) {
+        document.getElementById("imggen").src = document.getElementById("card27").src;
+    } else if (cardnum == 28) {
+        document.getElementById("imggen").src = document.getElementById("card28").src;
+    } else if (cardnum == 29) {
+        document.getElementById("imggen").src = document.getElementById("card29").src;
+    } else if (cardnum == 30) {
+        document.getElementById("imggen").src = document.getElementById("card30").src;
+    } else if (cardnum == 31) {
+        document.getElementById("imggen").src = document.getElementById("card31").src;
+    } else if (cardnum == 32) {
+        document.getElementById("imggen").src = document.getElementById("card32").src;
+    } else if (cardnum == 33) {
+        document.getElementById("imggen").src = document.getElementById("card33").src;
+    } else if (cardnum == 34) {
+        document.getElementById("imggen").src = document.getElementById("card34").src;
+    } else if (cardnum == 35) {
+        document.getElementById("imggen").src = document.getElementById("card35").src;
+    } else if (cardnum == 36) {
+        document.getElementById("imggen").src = document.getElementById("card36").src;
+    } else if (cardnum == 37) {
+        document.getElementById("imggen").src = document.getElementById("card37").src;
+    } else if (cardnum == 38) {
+        document.getElementById("imggen").src = document.getElementById("card38").src;
+    } else if (cardnum == 39) {
+        document.getElementById("imggen").src = document.getElementById("card39").src;
+    } else if (cardnum == 40) {
+        document.getElementById("imggen").src = document.getElementById("card40").src;
+    } else if (cardnum == 41) {
+        document.getElementById("imggen").src = document.getElementById("card41").src;
+    } else if (cardnum == 42) {
+        document.getElementById("imggen").src = document.getElementById("card42").src;
+    } else if (cardnum == 43) {
+        document.getElementById("imggen").src = document.getElementById("card43").src;
+    } else if (cardnum == 44) {
+        document.getElementById("imggen").src = document.getElementById("card44").src;
+    }
+    bntnext();
+}
+function bntnext() {
+    document.getElementById("boxhide").style.display = "none";
+    document.getElementById("appbox").style.display = "none";
+    document.getElementById("Gentext").style.display = "block";
+    var myVarCode = setInterval(genkey, 40);
+    var stop = 0;
+    var KeyCode = ["9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "Z", "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M"];
+    function genkey() {
+        key1 = KeyCode[Math.floor(Math.random() * 36)];
+        key2 = KeyCode[Math.floor(Math.random() * 36)];
+        key3 = KeyCode[Math.floor(Math.random() * 36)];
+        key4 = KeyCode[Math.floor(Math.random() * 36)];
+        key5 = KeyCode[Math.floor(Math.random() * 36)];
+        key6 = KeyCode[Math.floor(Math.random() * 36)];
+        key7 = KeyCode[Math.floor(Math.random() * 36)];
+        key8 = KeyCode[Math.floor(Math.random() * 36)];
+        key9 = KeyCode[Math.floor(Math.random() * 36)];
+        key10 = KeyCode[Math.floor(Math.random() * 36)];
+        key11 = KeyCode[Math.floor(Math.random() * 36)];
+        key12 = KeyCode[Math.floor(Math.random() * 36)];
+        key13 = KeyCode[Math.floor(Math.random() * 36)];
+        key14 = KeyCode[Math.floor(Math.random() * 36)];
+        key15 = KeyCode[Math.floor(Math.random() * 36)];
+        key16 = KeyCode[Math.floor(Math.random() * 36)];
+        key17 = KeyCode[Math.floor(Math.random() * 36)];
+        key18 = KeyCode[Math.floor(Math.random() * 36)];
+        key19 = KeyCode[Math.floor(Math.random() * 36)];
+        key20 = KeyCode[Math.floor(Math.random() * 36)];
+        key21 = KeyCode[Math.floor(Math.random() * 36)];
+        key22 = KeyCode[Math.floor(Math.random() * 36)];
+        key23 = KeyCode[Math.floor(Math.random() * 36)];
+        key24 = KeyCode[Math.floor(Math.random() * 36)];
+        key25 = KeyCode[Math.floor(Math.random() * 36)];
+        key26 = KeyCode[Math.floor(Math.random() * 36)];
+        key27 = KeyCode[Math.floor(Math.random() * 36)];
+        key28 = KeyCode[Math.floor(Math.random() * 36)];
+        key29 = KeyCode[Math.floor(Math.random() * 36)];
+        key30 = KeyCode[Math.floor(Math.random() * 36)];
+        key31 = KeyCode[Math.floor(Math.random() * 36)];
+        key32 = KeyCode[Math.floor(Math.random() * 36)];
+        key33 = KeyCode[Math.floor(Math.random() * 36)];
+        key34 = KeyCode[Math.floor(Math.random() * 36)];
+        key35 = KeyCode[Math.floor(Math.random() * 36)];
+        key36 = KeyCode[Math.floor(Math.random() * 36)];
+        document.getElementById("Gentext").innerHTML = key6 + key7 + key8 + key9 + "-" + key11 + key12 + key13 + key14 + "-" + key16 + key17 + key18 + key19 + "-" + key21 + key22 + key23 + key24;
+        stop++;
+        if (stop == 40) {
+            document.getElementById("Gentext").innerHTML = key6 + key7 + key8 + key9 + "-" + key11 + key12 + key13 + key14 + "-" + key16 + key17 + key18 + key19 + "-" + "####";
+            document.getElementById("button1").style.display = "block";
+            document.getElementById("Gentext1").style.display = "block";
+            clearInterval(myVarCode);
+        }
+    }
+}
+
+// 
+
+
+
+
+</script>
+
+
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "037ab4eaeffc48c9b1541e9ff3d34d01"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
